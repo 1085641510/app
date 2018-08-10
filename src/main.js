@@ -4,6 +4,13 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+
+/*https://www.cnblogs.com/zhangruiqi/p/9062005.html webpack配置详解*/ 
+/**公共样式*/ 
+import '../static/css/reset.css'
+/**兼容各种终端*/ 
+import 'lib-flexible/flexible.js'
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
