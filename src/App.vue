@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <bg-header></bg-header>
+    <bg-header :leftIcon='leftIcon' :rightIcon='rightIcon'></bg-header>
     <router-view/>
   </div>
 </template>
@@ -12,6 +12,12 @@
     name: 'App',
     components: {
       bgHeader
+    },
+    data() {
+      return {
+        leftIcon:`<i class="fa fa-chevron-left"></i>`,
+        rightIcon:`<i class="fa fa-repeat"></i>`
+      }
     }
   }
 
