@@ -1,8 +1,12 @@
 <template>
   <div :class='headerClass'>
-        <div :class="leftIconClass" v-html="leftIcon"></div>
+        <div class="left-icon">
+            <slot name="left"></slot>
+        </div>
         <div class="title" :class="titleClass">{{title}}</div>
-        <div :class="rightIconClass" v-html="rightIcon"></div>
+        <div class="right-icon">
+            <slot name="right"></slot>
+        </div>
   </div>
 </template>
 
@@ -18,26 +22,6 @@ export default {
       titleClass:{
           default: 'font-title',
           type: null,
-          required: false
-      },
-      leftIcon:{
-          default: '',
-          type: null,
-          required: false
-      },
-      rightIcon:{
-          default: '',
-          type: null,
-          required: false
-      },
-      leftIconClass:{
-          default: 'left-icon',
-          type: String,
-          required: false
-      },
-      rightIconClass:{
-          default: 'right-icon',
-          type: String,
           required: false
       },
       headerClass:{
@@ -63,7 +47,6 @@ export default {
     }
 
     .header{
-        position: fixed;
         width: 100%;
         background: #222222;
         color: #fff;
