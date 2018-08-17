@@ -1,4 +1,4 @@
-body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,div{margin:0;padding:0;box-sizing: border-box;}
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td,div{margin:0;padding:0;box-sizing: border-box;touch-action: none;}
 html{color:#000;overflow-y:scroll;overflow:-moz-scrollbars-vertical}
 body,button,input,select,textarea{font-size:12px;font-family:arial,'Hiragino Sans GB','Microsoft Yahei','微软雅黑','宋体',\5b8b\4f53,Tahoma,Arial,Helvetica,STHeiti}
 h1,h2,h3,h4,h5,h6{font-size:100%}
@@ -22,3 +22,16 @@ html,body{
     width: 100%;
     height: 100%;
 }
+
+
+[bg-tab] {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #cccccc;
+}
+.clearSpace{
+  letter-spacing: -999px;
+  word-spacing: -999px;
+  font-size: 0;
+}
+  

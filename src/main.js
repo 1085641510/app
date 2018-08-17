@@ -4,8 +4,26 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
-import './common/directive/tap'
+// function IsPC() {
+//     var userAgentInfo = navigator.userAgent;
+//     var Agents = ["Android", "iPhone",
+//                 "SymbianOS", "Windows Phone",
+//                 "iPad", "iPod"];
+//     var flag = true;
+//     for (var v = 0; v < Agents.length; v++) {
+//         if (userAgentInfo.indexOf(Agents[v]) > 0) {
+//             flag = false;
+//             break;
+//         }
+//     }
+//     return flag;
+// }
+ 
 
+/**解决cliclk延迟*/
+import fastclick from 'fastclick'
+fastclick.attach(document.body)
+ 
 /*https://www.cnblogs.com/zhangruiqi/p/9062005.html webpack配置详解*/ 
 /**公共样式*/ 
 import '@/assets/css/reset.css'
@@ -18,8 +36,11 @@ Vue.config.productionTip = false
 /**components*/
 
 import compontents from '@/common/components' 
-
 Vue.use(compontents)
+import VueTouch from 'vue-touch'
+Vue.use(VueTouch, {name: 'v-touch'})
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
