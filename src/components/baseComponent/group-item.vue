@@ -1,0 +1,119 @@
+<template>
+    <div class="bg-group-cell">
+        <div class="bg-group-cell-label" :style="{'margin-right':labelMargR,'width':curlabelWidth,'color':curlabelColor}">
+            <div class="bg-group-cell-label-content" :style="{'text-align':curlabelAlign}" v-if="label" v-html="label"></div>
+            <slot class="bg-group-cell-label-content" :style="{'text-align':curlabelAlign}" name="label"></slot>
+        </div>
+        <div class="bg-group-cell-content">
+            <slot></slot>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: 'bgGroupItem',
+        props: {
+            label: String,
+            labelColor: String,
+            labelWidth: String,
+            labelAlign: String,
+            labelMarginRight: String
+        },
+        data() {
+            return {
+
+            }
+        },
+        computed: {
+            labelMargR: function () {
+                let parentLabelMargR = this.$parent.labelMarginRight;
+                if(this.labelMarginRight){
+                    return this.labelMarginRight;
+                }
+                else if(parentLabelMargR){
+                    return parentLabelMargR;
+                }
+                else{
+                    return "20px"
+                }
+            },
+            curlabelWidth: function () {
+                let parentLabelWidth = this.$parent.labelWidth;
+                if(this.labelWidth){
+                    return this.labelWidth;
+                }
+                else if(parentLabelWidth){
+                    return parentLabelWidth;
+                }
+                else{
+                    return "200px"
+                }
+            },
+            curlabelAlign: function () {
+                let parentLabelAlign = this.$parent.labelAlign;
+                if(this.labelAlign){
+                    return this.labelAlign;
+                }
+                else if(parentLabelAlign){
+                    return parentLabelAlign;
+                }
+                else{
+                    return "right"
+                }
+            },
+            curlabelColor: function () {
+                let parentLabelColor = this.$parent.labelColor;
+                if(this.labelColor){
+                    return this.labelColor;
+                }
+                else if(parentLabelColor){
+                    return parentLabelColor;
+                }
+                else{
+                    return "rgb(0,0,0)"
+                }
+            }
+        }
+    }
+
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss" scoped>
+    .bg-group-cell {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        padding: 10px 15px;
+        font-size: 18px;
+    }
+    
+    .bg-group-cell:before {
+        content: " ";
+        position: absolute;
+        left: 15px;
+        top: 0;
+        right: 0;
+        height: 1px;
+        border-top: 1px solid #D9D9D9;
+        color: #D9D9D9;
+        transform-origin: 0 0;
+        transform: scaleY(0.5);
+    }
+    
+    .bg-group-cell-label {
+        display: flex;
+        align-items: center;
+    }
+    
+    .bg-group-cell-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+    
+    .bg-group-cell-label-content {
+        flex: 1;
+    }
+</style>

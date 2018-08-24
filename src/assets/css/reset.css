@@ -34,4 +34,13 @@ html,body{
   word-spacing: -999px;
   font-size: 0;
 }
+.bgDisable{
+    height: 100%;
+    color: #999999;
+}
+.bgLinkIcon{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
   

@@ -1,10 +1,13 @@
-import bgHeader from '@/components/header'
-import bgNav from '@/components/navMenu'
-import autoTransition from '@/components/autoTransition'
-import tab from '@/components/tab'
-import tabItem from '@/components/tab-item'
-import swiperTab from '@/components/swiper-tab'
-import swiperTabItem from '@/components/swiper-tab-item'
+import bgHeader from '@/components/baseComponent/header'
+import bgNav from '@/components/baseComponent/navMenu'
+import autoTransition from '@/components/baseComponent/autoTransition'
+import tab from '@/components/baseComponent/tab'
+import tabItem from '@/components/baseComponent/tab-item'
+import swiperTab from '@/components/baseComponent/swiper-tab'
+import swiperTabItem from '@/components/baseComponent/swiper-tab-item'
+import group from '@/components/baseComponent/group'
+import groupItem from '@/components/baseComponent/group-item'
+import linkCell from '@/components/baseComponent/link-cell'
 
 export default (Vue) => {
     Vue.component("bgHeader", bgHeader)
@@ -14,4 +17,7 @@ export default (Vue) => {
     Vue.component("bgTabItem", tabItem)
     Vue.component("bgSwiperTab", swiperTab)
     Vue.component("bgSwiperTabItem", swiperTabItem)
+    Vue.component("bgGroup", group)
+    Vue.component("bgGroupItem", groupItem)
+    Vue.component("bgLinkCell", linkCell)
 }

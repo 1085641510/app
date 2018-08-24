@@ -13,7 +13,7 @@
       </div>
     </bg-header>-->
 
-    <bg-tab class="mytab" :select-index="curselectIndex">
+    <!--<bg-tab class="mytab" :select-index="curselectIndex">
         <bg-tab-item @selectItem="selectTabItem">tab1</bg-tab-item>
         <bg-tab-item @selectItem="selectTabItem">tab2</bg-tab-item>
         <bg-tab-item @selectItem="selectTabItem">tab3</bg-tab-item>
@@ -30,7 +30,8 @@
         <bg-swiper-tab-item :item-width="'200px'" @selectItem="selectTabItem">tab6</bg-swiper-tab-item>
         <bg-swiper-tab-item :item-width="'200px'" @selectItem="selectTabItem">tab7</bg-swiper-tab-item>
         <bg-swiper-tab-item :item-width="'300px'" @selectItem="selectTabItem">tab8</bg-swiper-tab-item>
-    </bg-swiper-tab>
+    </bg-swiper-tab>-->
+    
     <router-view/>
   </div>
 </template>
