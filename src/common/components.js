@@ -1,6 +1,7 @@
 import bgHeader from '@/components/baseComponent/header'
 import bgNav from '@/components/baseComponent/navMenu'
 import autoTransition from '@/components/baseComponent/autoTransition'
+import autoLeftTransition from '@/components/baseComponent/autoLeftTransition'
 import tab from '@/components/baseComponent/tab'
 import tabItem from '@/components/baseComponent/tab-item'
 import swiperTab from '@/components/baseComponent/swiper-tab'
@@ -13,6 +14,7 @@ export default (Vue) => {
     Vue.component("bgHeader", bgHeader)
     Vue.component("bgNav", bgNav)
     Vue.component("collapseTransition", autoTransition)
+    Vue.component("collapseLeftTransition", autoLeftTransition)
     Vue.component("bgTab", tab)
     Vue.component("bgTabItem", tabItem)
     Vue.component("bgSwiperTab", swiperTab)

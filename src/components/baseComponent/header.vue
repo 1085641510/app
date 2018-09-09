@@ -3,7 +3,10 @@
         <div class="left-icon">
             <slot name="left"></slot>
         </div>
-        <div class="title" :class="titleClass">{{title}}</div>
+        <div class="title font-title" v-if="title" v-html="title"></div>
+        <div class="title">
+            <slot name="title"></slot>
+        </div>
         <div class="right-icon">
             <slot name="right"></slot>
         </div>
@@ -14,16 +17,8 @@
 export default {
   name: 'bgHeader',
   props:{
-      title:{
-          default: 'my blog',
-          type: null,
-          required: false
-      },
-      titleClass:{
-          default: 'font-title',
-          type: null,
-          required: false
-      },
+      title: [String,Number],
+      titleClass:String,
       headerClass:{
           default: 'header',
           type: String,
@@ -51,7 +46,7 @@ export default {
         background: #222222;
         color: #fff;
         font-size: torem(28px);
-        height: torem(40px);
+        height: torem(80px);
         display: flex;
         align-items: center;
         padding: 0 torem(20px);;
@@ -65,8 +60,8 @@ export default {
         text-align: center;
     }
     .left-icon,.right-icon{
-        width: torem(20px);
-        height: torem(20px);
-        font-size: torem(20px);
+        width: torem(50px);
+        height: torem(50px);
+        font-size: torem(50px);
     }
 </style>

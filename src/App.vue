@@ -66,18 +66,7 @@
         alert(`this is tap`);
         console.log(111)
       },
-      selectNavMenu(item, path) {
-        console.log(`select item`)
-        console.log(item, path)
-      },
-      openChild(item, path) {
-        console.log(`openChild`)
-        console.log(item, path)
-      },
-      closeChild(item, path) {
-        console.log(`closeChild`)
-        console.log(item, path)
-      },
+      
       selectTabItem(index){
         //console.log(index)
       }
@@ -91,14 +80,7 @@ $baseFontSize:75px;
     @function torem($px) {
         @return $px / $baseFontSize * 1rem;
     }
-  .leftNav {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 400px;
-    height: 100%;
-    overflow: auto;
-  }
+  
   .mytab{
     font-size: torem(30px);
     height: torem(100px);

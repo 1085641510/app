@@ -1,4 +1,3 @@
-
 const elTransition = '0.3s height ease-in-out, 0.3s padding-top ease-in-out, 0.3s padding-bottom ease-in-out'
 const Transition = {
     'before-enter'(el) {

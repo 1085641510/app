@@ -137,7 +137,7 @@
                 this.dataList.forEach((val, ind) => {
                     this.handListData(val, val.id);
                 })
-                //console.log(this.dataList)
+                
             }
         },
         mounted() {
@@ -157,9 +157,9 @@
     
    
     .bg-nav {
-        overflow: hidden;
+        // overflow: hidden;
         background-color: rgb(84, 92, 100);
-        min-width: 400px;
+        width:100%;
         .active {
             background-color: #000000;
             color: rgb(255, 208, 75)!important;
@@ -188,6 +188,9 @@
                 .nav-label {
                     padding-left: 10px;
                     flex: 1;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
                 }
             }
             .bg-nav {
