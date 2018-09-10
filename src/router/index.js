@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import showGroup from '@/components/showComponent/group-show'
 import showIndex from '@/components/showComponent/index-show'
+import showTab from '@/components/showComponent/tab-show'
 
 Vue.use(Router)
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/showGroup',
       name: 'showGroup',
       component: showGroup
+    },
+    {
+      path: '/showTab',
+      name: 'showTab',
+      component: showTab
     }
   ]
 })

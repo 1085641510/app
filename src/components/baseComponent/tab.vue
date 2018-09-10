@@ -1,6 +1,6 @@
 <template>
-  <div class="bg-tab-con" bg-tab>
-    <div class="bg-tab" ref="bgTab" :style="{'font-weight': lineWidth}" :select-index="selectIndex">
+  <div class="bg-tab">
+    <div class="bg-tab-con" ref="bgTab" :style="{'font-weight': lineWidth}" :select-index="selectIndex">
       <slot></slot>
     </div>
     <div class="bg-tab-link-border" :style="{left:leftWidth+'%',width:100/children.length+'%'}"></div>
@@ -57,25 +57,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  $baseFontSize:75px;
-  @function torem($px) {
-    @return $px / $baseFontSize * 1rem;
-  }
-  
-  .bg-tab {
-    width: 100%;
-    height: 100%;
-    display: flex;
-  }
-  
-  
-  
-  .bg-tab-link-border {
-    display: block;
-    top: -3px;
-    height: 3px;
-    background: #999999;
-    position: relative;
-    transition: left .4s;
-  }
+
 </style>

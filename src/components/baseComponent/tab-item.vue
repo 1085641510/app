@@ -55,11 +55,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  .bg-tab-item {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: center;
-  }
+  
 </style>

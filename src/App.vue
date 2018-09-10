@@ -87,8 +87,5 @@ $baseFontSize:75px;
     font-size: torem(30px);
     height: torem(100px);
   }
-  .swiper-tab{
-    font-size: torem(30px);
-    height: torem(100px);
-  }
+  
 </style>

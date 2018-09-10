@@ -1,7 +1,7 @@
 <template>
     <div class="bg-group-cell">
         <div class="bg-group-cell-label" :style="{'margin-right':labelMargR,'width':curlabelWidth,'color':curlabelColor}">
-            <div class="bg-group-cell-label-content" :style="{'text-align':curlabelAlign}" v-if="label" v-html="label"></div>
+            <span class="bg-group-cell-label-content" :style="{'text-align':curlabelAlign}" v-if="label" v-html="label"></span>
             <slot class="bg-group-cell-label-content" :style="{'text-align':curlabelAlign}" name="label"></slot>
         </div>
         <div class="bg-group-cell-content">
@@ -35,7 +35,7 @@
                     return parentLabelMargR;
                 }
                 else{
-                    return "20px"
+                    return "0.266rem"
                 }
             },
             curlabelWidth: function () {
@@ -47,7 +47,7 @@
                     return parentLabelWidth;
                 }
                 else{
-                    return "200px"
+                    return "2.666rem"
                 }
             },
             curlabelAlign: function () {
@@ -81,39 +81,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-    .bg-group-cell {
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        padding: 10px 15px;
-        font-size: 18px;
-    }
     
-    .bg-group-cell:before {
-        content: " ";
-        position: absolute;
-        left: 15px;
-        top: 0;
-        right: 0;
-        height: 1px;
-        border-top: 1px solid #D9D9D9;
-        color: #D9D9D9;
-        transform-origin: 0 0;
-        transform: scaleY(0.5);
-    }
-    
-    .bg-group-cell-label {
-        display: flex;
-        align-items: center;
-    }
-    
-    .bg-group-cell-content {
-        flex: 1;
-        display: flex;
-        align-items: center;
-    }
-    
-    .bg-group-cell-label-content {
-        flex: 1;
-    }
 </style>

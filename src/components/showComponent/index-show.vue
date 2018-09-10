@@ -21,6 +21,7 @@
         </div>
       </bg-header>
       <router-link to="/showGroup">Go to showGroup</router-link>
+      <router-link to="/showTab">Go to showGroup</router-link>
     </div>
 
   </div>

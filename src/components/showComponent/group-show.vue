@@ -9,7 +9,7 @@
             </div>
         </bg-header>
         <div style="height: 20px;"></div>
-        <bg-group label-margin-right="30px" label-width="200px" label-align="right" label-color="red">
+        <bg-group label-margin-right="0.4rem" label-width="20%" label-align="right" label-color="red">
             <bg-group-item label="这是第一个" label-color="rgba(0,0,0)">
                 <bg-link-cell is-link value="进行中">
                     我是

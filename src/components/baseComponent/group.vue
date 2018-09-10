@@ -33,33 +33,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-    .bg-group-cells{
-        position: relative;
-        overflow: auto;
-    }
-    .bg-group-cells:before{
-        content: " ";
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        height: 1px;
-        border-top: 1px solid #D9D9D9;
-        color: #D9D9D9;
-        transform-origin: 0 0;
-        transform: scaleY(0.5);
-    }
-    .bg-group-cells:after{
-        content: " ";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        height: 1px;
-        border-top: 1px solid #D9D9D9;
-        color: #D9D9D9;
-        transform-origin: 0 0;
-        transform: scaleY(0.5);
-    }
+    
     
 </style>

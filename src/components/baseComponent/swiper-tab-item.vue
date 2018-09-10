@@ -69,11 +69,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-    .bg-swiper-tab-item {
-        width: 100px;
-        display: flex;
-        align-items: center;
-        height: 100%;
-        justify-content: center;
-    }
+    
 </style>
