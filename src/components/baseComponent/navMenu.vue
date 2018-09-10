@@ -1,7 +1,7 @@
 <template>
-    <div class='bg-nav'>
+    <div class="bg-nav" :style="{backgroundColor:backgroundColor,color:defaultColor}">
         <div v-for="(item,index) in dataList" :key="item.id" class="nav-items">
-            <div class="nav-item" @click="selectItem(item,dataList)" :class="{active:item.id === defaultSelectid}">
+            <div class="nav-item" @click="selectItem(item,dataList)" :style="[item.id === defaultSelectid?bgNavActiveClass:'']">
                 <span v-html="item.icon"></span>
                 <span class="nav-label">{{item.label}}</span>
 
@@ -9,11 +9,12 @@
 
             </div>
             <collapse-transition>
-                <bg-nav v-show="item.childrenIsShow" @open="openChild" @close="closeChild" v-if="item.children" :list="item.children" :unique-opened="uniqueOpened"
-                @select="childSelect" :default-selectid.sync="activeId">
-                </bg-nav>
+                <bg-nav :active-color="activeColor" :active-bg-color="activeBgColor" :backgroundColor="curbackgroundColor" :defaultColor="defaultColor"
+                    v-show="item.childrenIsShow" @open="openChild" @close="closeChild" v-if="item.children" :list="item.children"
+                    :unique-opened="uniqueOpened" @select="childSelect" :default-selectid.sync="activeId">
+                    </bg-nav>
             </collapse-transition>
-            
+
         </div>
     </div>
 </template>
@@ -22,9 +23,24 @@
     export default {
         name: 'bgNav',
         props: {
-            navClass: {
-                default: 'bg-nav',
-                type: null,
+            backgroundColor: {
+                default: 'rgb(84, 92, 100)',
+                type: String,
+                required: false
+            },
+            defaultColor: {
+                default: '#ffffff',
+                type: String,
+                required: false
+            },
+            activeColor: {
+                default: 'rgb(255, 208, 75)',
+                type: String,
+                required: false
+            },
+            activeBgColor: {
+                default: '#000000',
+                type: String,
                 required: false
             },
             list: {
@@ -44,11 +60,23 @@
                 required: false
             }
         },
+        computed: {
+            bgNavActiveClass() {
+
+                return {
+                    backgroundColor: this.activeBgColor,
+                    color: this.activeColor
+                }
+
+
+            }
+        },
         data() {
             return {
                 activeId: this.defaultSelectid,
                 dataList: this.list,
-                dataPath: []
+                dataPath: [],
+                curbackgroundColor: this.backgroundColor
             }
         },
         watch: {
@@ -137,7 +165,7 @@
                 this.dataList.forEach((val, ind) => {
                     this.handListData(val, val.id);
                 })
-                
+
             }
         },
         mounted() {
@@ -149,70 +177,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-    $baseFontSize:75px;
-    @function torem($px) {
-        @return $px / $baseFontSize * 1rem;
-    }
-    
-    
-   
-    .bg-nav {
-        // overflow: hidden;
-        background-color: rgb(84, 92, 100);
-        width:100%;
-        .active {
-            background-color: #000000;
-            color: rgb(255, 208, 75)!important;
-        }
-        .drog-icon {
-            transition: .3s;
-        }
-        .rotate-icon {
-            transform: rotate(180deg);
-        }
-        .nav-items {
-            color: #fff;
-            min-height: 70px;
-            width: 100%;
-            overflow: hidden;
-            .nav-item {
-                color: #fff;
-                height: 70px;
-                width: 100%;
-                padding-left: 20px;
-                padding-right: 20px;
-                line-height: 70px;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                .nav-label {
-                    padding-left: 10px;
-                    flex: 1;
-                    overflow: hidden;
-                    text-overflow:ellipsis;
-                    white-space: nowrap;
-                }
-            }
-            .bg-nav {
-                .nav-item {
-                    padding-left: 40px;
-                }
-                .bg-nav {
-                    .nav-item {
-                        padding-left: 60px;
-                    }
-                    .bg-nav {
-                        .nav-item {
-                            padding-left: 80px;
-                        }
-                        .bg-nav {
-                            .nav-item {
-                                padding-left: 100px;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+
 </style>

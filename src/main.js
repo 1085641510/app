@@ -25,8 +25,7 @@ import fastclick from 'fastclick'
 fastclick.attach(document.body)
  
 /*https://www.cnblogs.com/zhangruiqi/p/9062005.html webpack配置详解*/ 
-/**公共样式*/ 
-import '@/assets/css/reset.css'
+
 import 'font-awesome/css/font-awesome.css'
 /**兼容各种终端*/ 
 import 'lib-flexible/flexible.js'

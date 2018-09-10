@@ -1,67 +1,44 @@
 <template>
-  <div :class='headerClass'>
+    <div class='bg-header' :style="{backgroundColor:backgroundColor,color:defaultColor}">
         <div class="left-icon">
+           
             <slot name="left"></slot>
         </div>
-        <div class="title font-title" v-if="title" v-html="title"></div>
+        <div class="title" v-if="title" v-html="title"></div>
         <div class="title">
             <slot name="title"></slot>
         </div>
         <div class="right-icon">
             <slot name="right"></slot>
         </div>
-  </div>
+    </div>
 </template>
 
 <script>
-export default {
-  name: 'bgHeader',
-  props:{
-      title: [String,Number],
-      titleClass:String,
-      headerClass:{
-          default: 'header',
-          type: String,
-          required: false
-      }
-  },
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
+    export default {
+        name: 'bgHeader',
+        props: {
+            title: [String, Number],
+            defaultColor: {
+                default: '#ffffff',
+                type: String,
+                required: false
+            },
+            backgroundColor: {
+                default: '#222222',
+                type: String
+            }
+        },
+        data() {
+            return {
+                
+            }
+        }
     }
-  }
-}
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-    $baseFontSize :75px;
-
-    @function torem($px){
-        @return $px / $baseFontSize * 1rem; 
-    }
-
-    .header{
-        width: 100%;
-        background: #222222;
-        color: #fff;
-        font-size: torem(28px);
-        height: torem(80px);
-        display: flex;
-        align-items: center;
-        padding: 0 torem(20px);;
-    }
-    .font-title{
-        color: #fff;
-        font-size: torem(28px);
-    }
-    .title{
-        flex: 1;
-        text-align: center;
-    }
-    .left-icon,.right-icon{
-        width: torem(50px);
-        height: torem(50px);
-        font-size: torem(50px);
-    }
+    
 </style>

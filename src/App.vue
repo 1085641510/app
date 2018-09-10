@@ -75,7 +75,9 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+/*公共样式*/
+@import './assets/css/reset';
 $baseFontSize:75px;
     @function torem($px) {
         @return $px / $baseFontSize * 1rem;

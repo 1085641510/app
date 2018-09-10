@@ -2,15 +2,19 @@
   <div class="index_style">
     <collapse-left-transition>
       <div class="index_nav" v-show="showNavListFlag">
-        <bg-nav :list='navList' @open="openChild" @close="closeChild" @select="selectNavMenu" :unique-opened="true" :default-selectid.sync="navDefaultId"></bg-nav>
+        <!--background-color="#675a5a" default-color="#ffffff" active-color="red" active-bg-color="#ae8d37c7"-->
+        <bg-nav  :list='navList' @open="openChild" @close="closeChild" @select="selectNavMenu" :unique-opened="true" :default-selectid.sync="navDefaultId"></bg-nav>
       </div>
     </collapse-left-transition>
 
     <div class="index_contain">
       <div class="index_contain_shade" v-show="showNavListFlag" @click="controlNavList"></div>
-      <bg-header>
+      <bg-header background-color="#222222" default-color="#ffffff">
         <div slot="left" @click="controlNavList">
           <i class="fa fa-list" aria-hidden="true"></i>
+        </div>
+        <div slot="title">
+          myApp
         </div>
         <div slot="right">
           <i class="fa fa-repeat"></i>
@@ -78,7 +82,7 @@ export default {
 .index_nav {
   flex-grow: 0;
   flex-shrink: 0;
-  width: 60%;
+  width: 70%;
   height: 100%;
 }
 
