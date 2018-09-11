@@ -9,20 +9,23 @@
             </div>
         </bg-header>
 
-        <bg-group labelAlign="right" label-margin-right="0.4rem" label-width="20%" label-align="right" label-color="red" title="hello title" footer-title="this is footer">
+        <bg-group labelAlign="left" label-margin-right="0.4rem" label-width="20%" label-align="right" label-color="rgba(0,0,0)" title="hello title" footer-title="this is footer">
             <bg-group-item label="这是第一个" label-color="rgba(0,0,0)">
-                <bg-link-cell is-link value="进行中">
+                <!-- <bg-link-cell is-link value="进行中">
                     我是
-                </bg-link-cell>
+                </bg-link-cell> -->
+                <div>
+                    测试
+                </div>
             </bg-group-item>
             <bg-group-item labelAlign="left" label="hello">
-                <div>llll</div>
-            </bg-group-item>
-            <bg-group-item labelAlign="center" label="我是广告">
-                <div>llll</div>
+                <div>测试</div>
             </bg-group-item>
             <bg-group-item labelAlign="right" label="我是广告">
-                <div>llll</div>
+                <div>测试</div>
+            </bg-group-item>
+            <bg-group-item labelAlign="right" label="我是广告">
+                <div>测试</div>
             </bg-group-item>
         </bg-group>
         <div style="margin-top: 0.5rem">
