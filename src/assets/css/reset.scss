@@ -329,6 +329,7 @@ bg-link-cell
     line-height: torem(30px);
     display: flex;
     width: 100%;
+    height: 100%;
     align-items: center;
     .bgLinkCellContent{
         height: 100%;
@@ -345,7 +346,6 @@ bg-link-cell
 
 
 .bgDisable{
-    height: 100%;
     color: #999999;
 }
 .bgLinkIcon{
