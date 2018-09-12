@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="app_group">
         <bg-header>
             <div slot="left">
                 <i class="fa fa-chevron-left" @click="goBack"></i>
@@ -8,29 +8,29 @@
                 <i class="fa fa-repeat"></i>
             </div>
         </bg-header>
-
-        <bg-group labelAlign="left" label-margin-right="0.4rem" label-width="20%" label-align="right" label-color="rgba(0,0,0)" title="hello title" footer-title="this is footer">
-            <bg-group-item label="这是第一个" label-color="rgba(0,0,0)">
-                <!-- <bg-link-cell is-link value="进行中">
+        <div class="app_section">
+            <bg-group labelAlign="left" label-margin-right="0.4rem" label-width="20%" label-align="right" label-color="rgba(0,0,0)" title="hello title"
+                footer-title="this is footer">
+                <bg-group-item label="这是第一个" label-color="rgba(0,0,0)">
+                    <bg-link-cell is-link value="进行中">
                     我是
-                </bg-link-cell> -->
-                <div>
-                    测试
-                </div>
-            </bg-group-item>
-            <bg-group-item labelAlign="left" label="hello">
-                <div>测试</div>
-            </bg-group-item>
-            <bg-group-item labelAlign="right" label="我是广告">
-                <div>测试</div>
-            </bg-group-item>
-            <bg-group-item labelAlign="right" label="我是广告">
-                <div>测试</div>
-            </bg-group-item>
-        </bg-group>
-        <div style="margin-top: 0.5rem">
-            <attr-show :attr-list="attrList"></attr-show>
+                    </bg-link-cell> 
+                </bg-group-item>
+                <bg-group-item labelAlign="left" label="hello">
+                    <div>测试</div>
+                </bg-group-item>
+                <bg-group-item labelAlign="right" label="我是广告">
+                    <div>测试</div>
+                </bg-group-item>
+                <bg-group-item labelAlign="right" label="我是广告">
+                    <div>测试</div>
+                </bg-group-item>
+            </bg-group>
+            <div style="margin-top: 0.5rem">
+                <attr-show :attr-list="attrList"></attr-show>
+            </div>
         </div>
+
     </div>
 </template>
 
@@ -80,6 +80,56 @@
                         type: "String",
                         default: "0.266rem",
                         remark: "为子元素设定统的距离右边的距离"
+                    }, {
+                        name: "labelMarginRight",
+                        type: "String",
+                        default: "0.266rem",
+                        remark: "为子元素设定统的距离右边的距离"
+                    }, {
+                        name: "labelMarginRight",
+                        type: "String",
+                        default: "0.266rem",
+                        remark: "为子元素设定统的距离右边的距离"
+                    }, {
+                        name: "labelMarginRight",
+                        type: "String",
+                        default: "0.266rem",
+                        remark: "为子元素设定统的距离右边的距离"
+                    }, {
+                        name: "labelMarginRight",
+                        type: "String",
+                        default: "0.266rem",
+                        remark: "为子元素设定统的距离右边的距离"
+                    }, {
+                        name: "labelMarginRight",
+                        type: "String",
+                        default: "0.266rem",
+                        remark: "为子元素设定统的距离右边的距离"
+                    }, {
+                        name: "labelMarginRight",
+                        type: "String",
+                        default: "0.266rem",
+                        remark: "为子元素设定统的距离右边的距离"
+                    }, {
+                        name: "labelMarginRight",
+                        type: "String",
+                        default: "0.266rem",
+                        remark: "为子元素设定统的距离右边的距离"
+                    }, {
+                        name: "labelMarginRight",
+                        type: "String",
+                        default: "0.266rem",
+                        remark: "为子元素设定统的距离右边的距离"
+                    }, {
+                        name: "labelMarginRight",
+                        type: "String",
+                        default: "0.266rem",
+                        remark: "为子元素设定统的距离右边的距离"
+                    }, {
+                        name: "labelMarginRight",
+                        type: "String",
+                        default: "0.266rem",
+                        remark: "为子元素设定统的距离右边的距离"
                     }
                 ]
             }
@@ -95,5 +145,13 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-
+    .app_group{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .app_section{
+        overflow-y: auto;
+        flex: 1;
+    }
 </style>
