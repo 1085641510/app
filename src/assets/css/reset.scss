@@ -21,6 +21,7 @@ pre.wordwrap{white-space:pre-wrap}
 html,body,#app{
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 
 $baseFontSize:75px;
@@ -315,6 +316,7 @@ bg-group-cell
         display: flex;
         height: 100%;
         align-items: center;
+        padding-right: torem(15px);
     }
 
 }
