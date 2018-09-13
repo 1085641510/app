@@ -38,7 +38,7 @@
 </template>
 
 <script>
-    import XScroll from 'vux-xscroll/build/cmd/xscroll.js'
+    //import XScroll from 'vux-xscroll/build/cmd/xscroll.js'
 
     export default {
         name: 'showGroup',
@@ -161,6 +161,6 @@
     
     .app_section {
         overflow-y: auto;
-        flex: 0 0 1;
+        flex: 1;
     }
 </style>

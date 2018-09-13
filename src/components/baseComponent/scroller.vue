@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import XScroll from 'vux-xscroll/build/cmd/xscroll.js'
-import Pulldown from 'vux-xscroll/build/cmd/plugins/pulldown'
-import Pullup from 'vux-xscroll/build/cmd/plugins/pullup'
+import XScroll from 'xscroll/build/cmd/xscroll.js'
+import Pulldown from 'xscroll/build/cmd/plugins/pulldown'
+import Pullup from 'xscroll/build/cmd/plugins/pullup'
 
 export default {
   name: 'bgScroller',
