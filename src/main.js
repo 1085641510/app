@@ -36,8 +36,7 @@ Vue.config.productionTip = false
 
 import compontents from '@/common/components' 
 Vue.use(compontents)
-import VueTouch from 'vue-touch'
-Vue.use(VueTouch, {name: 'v-touch'})
+
 
 
 /* eslint-disable no-new */
