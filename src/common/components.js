@@ -15,8 +15,8 @@ import scroller from '@/components/baseComponent/scroller'
 
 
 export default (Vue) => {
-    Vue.component("bgScroller", scroller)
     Vue.component("attrShow", attrShow)
+    Vue.component("bgScroller", scroller)
     Vue.component("bgHeader", bgHeader)
     Vue.component("bgNav", bgNav)
     Vue.component("collapseTransition", autoTransition)

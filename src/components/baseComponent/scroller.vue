@@ -1,6 +1,6 @@
 <template>
   <div class="bg-scroller" :style="styles">
-    <div class="xs-container">
+    <div class="xs-container" >
       <slot></slot>
       <slot name="pulldown"></slot>
       <slot name="pullup"></slot>
@@ -44,6 +44,10 @@ export default {
     },
     preventDefault: {
       type: Boolean,
+      default: true
+    },
+    preventTouchMove: {
+      type: Boolean,
       default: false
     },
     stopPropagation: Boolean,
@@ -55,7 +59,8 @@ export default {
       type: Boolean,
       default: true
     },
-
+    stickyElements: String,
+    fixedElements: String,
     usePulldown: {
       type: Boolean,
       default: false
@@ -99,6 +104,9 @@ export default {
     },
   },
   methods:{
+    consoleMes(){
+      console.log(23131)
+    },
     reset (scrollPosition, duration, easing) {
       if (scrollPosition) {
         if (typeof scrollPosition.left !== 'undefined') {
@@ -127,7 +135,8 @@ export default {
   mounted(){
     this.uuid =  Math.random().toString(36).substring(3, 8);
     this.$nextTick(()=>{
-      this.$el.setAttribute('id', `bg-scroller-${this.uuid}`)
+      this.$el.setAttribute('id', `bg-scroller-${this.uuid}`);
+     
       let content = null
       if (this.$slots.default) {
         content = this.$slots.default[0].elm
@@ -147,9 +156,12 @@ export default {
           useOriginScroll: this.useOriginScroll,
           useTransition: this.useTransition,
           preventDefault: this.preventDefault,
+          preventTouchMove: this.preventTouchMove,
           boundryCheck: this.boundryCheck,
           gpuAcceleration: this.gpuAcceleration,
-          stopPropagation: this.stopPropagation
+          stopPropagation: this.stopPropagation,
+          stickyElements: this.stickyElements
+          // fixedElements: `#bg-scroller-${this.uuid}`
       })
 
       // this._xscroll.on('scroll', () => {

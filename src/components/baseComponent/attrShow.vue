@@ -1,5 +1,7 @@
 <template>
   <div class="bg-attr-show">
+    <div class="title" v-if="title" v-html="title"></div>
+    <slot name="title"></slot>
     <table>
       <thead>
         <tr>
@@ -25,6 +27,7 @@
   export default {
     name: 'attrShow',
     props: {
+      title: String,
       attrList: Array
     },
     data() {
@@ -33,8 +36,8 @@
           {
             name: "",
             type: "",
-            default:"",
-            remark:""
+            default: "",
+            remark: ""
           }
         ]
       }

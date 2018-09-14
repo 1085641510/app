@@ -28,7 +28,7 @@
             }
         },
         mounted(){
-            console.log(this.$el.scrollHeight,this.$el.clientHeight,this.$el.offsetHeight)
+            
         }
     }
 

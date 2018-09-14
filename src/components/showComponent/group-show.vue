@@ -9,9 +9,9 @@
                 <i class="fa fa-repeat"></i>
             </div>
         </bg-header>
-        <bg-scroller lock-x scrollbar-y class="app_section">
+        <bg-scroller lock-x scrollbar-y  class="app_section" >
         <div>
-            <bg-group labelAlign="left" label-margin-right="0.4rem" label-width="20%" label-align="right" label-color="rgba(0,0,0)" title="hello title"
+            <bg-group  labelAlign="left" label-margin-right="0.4rem" label-width="20%" label-align="right" label-color="rgba(0,0,0)" title="hello title"
                 footer-title="this is footer">
                 <bg-group-item label="这是第一个" label-color="rgba(0,0,0)">
                     <bg-link-cell is-link value="进行中">
@@ -28,8 +28,11 @@
                     <div>测试</div>
                 </bg-group-item>
                 </bg-group>
+                <div id="fiexEle" style="margin-top: 0.5rem">
+                    <attr-show :attr-list="groupAttrList" title="group 参数详解"></attr-show>
+                </div>
                 <div style="margin-top: 0.5rem">
-                    <attr-show :attr-list="attrList"></attr-show>
+                    <attr-show :attr-list="scrollerAttrList" title="scroller 参数详解"></attr-show>
                 </div>
         </div>
         </bg-scroller>
@@ -38,13 +41,13 @@
 </template>
 
 <script>
-    //import XScroll from 'vux-xscroll/build/cmd/xscroll.js'
+    import XScroll from 'vux-xscroll/build/cmd/xscroll.js'
 
     export default {
         name: 'showGroup',
         data() {
             return {
-                attrList: [
+                groupAttrList: [
                     {
                         name: "title",
                         type: "String",
@@ -85,61 +88,82 @@
                         type: "String",
                         default: "0.266rem",
                         remark: "为子元素设定统的距离右边的距离"
+                    }
+                ],
+                scrollerAttrList: [
+                    {
+                        name: "lockX",
+                        type: "Boolean",
+                        default: "false",
+                        remark: "是否锁定X轴的滚动，相当于overflow-x:hidden"
                     }, {
-                        name: "labelMarginRight",
-                        type: "String",
-                        default: "0.266rem",
-                        remark: "为子元素设定统的距离右边的距离"
+                        name: "lockY",
+                        type: "Boolean",
+                        default: "false",
+                        remark: "是否锁定Y轴的滚动，相当于overflow-y:hidden"
                     }, {
-                        name: "labelMarginRight",
-                        type: "String",
-                        default: "0.266rem",
-                        remark: "为子元素设定统的距离右边的距离"
+                        name: "scrollbarX",
+                        type: "Boolean",
+                        default: "false",
+                        remark: "是否可见X轴的滚动条"
                     }, {
-                        name: "labelMarginRight",
-                        type: "String",
-                        default: "0.266rem",
-                        remark: "为子元素设定统的距离右边的距离"
+                        name: "scrollbarY",
+                        type: "Boolean",
+                        default: "false",
+                        remark: "是否可见Y轴的滚动条"
                     }, {
-                        name: "labelMarginRight",
-                        type: "String",
-                        default: "0.266rem",
-                        remark: "为子元素设定统的距离右边的距离"
+                        name: "bounce",
+                        type: "Boolean",
+                        default: "true",
+                        remark: "是否使用弹跳效果，超出边界时(使用:绑定)"
                     }, {
-                        name: "labelMarginRight",
-                        type: "String",
-                        default: "0.266rem",
-                        remark: "为子元素设定统的距离右边的距离"
+                        name: "useOriginScroll",
+                        type: "Boolean",
+                        default: "false",
+                        remark: "是否使用原生的滚动条"
                     }, {
-                        name: "labelMarginRight",
-                        type: "String",
-                        default: "0.266rem",
-                        remark: "为子元素设定统的距离右边的距离"
+                        name: "useTransition",
+                        type: "Boolean",
+                        default: "true",
+                        remark: "是否使用transiton效果"
                     }, {
-                        name: "labelMarginRight",
-                        type: "String",
-                        default: "0.266rem",
-                        remark: "为子元素设定统的距离右边的距离"
+                        name: "preventDefault",
+                        type: "Boolean",
+                        default: "true",
+                        remark: "阻止触发click事件，touchstart会触发click"
                     }, {
-                        name: "labelMarginRight",
-                        type: "String",
-                        default: "0.266rem",
-                        remark: "为子元素设定统的距离右边的距离"
+                        name: "preventTouchMove",
+                        type: "Boolean",
+                        default: "false",
+                        remark: "阻止触发mousemove默认事件"
                     }, {
-                        name: "labelMarginRight",
-                        type: "String",
-                        default: "0.266rem",
-                        remark: "为子元素设定统的距离右边的距离"
+                        name: "boundryCheck",
+                        type: "Boolean",
+                        default: "false",
+                        remark: "是否在边界内滚动,会超出默认高度或宽度无限滑动。"
                     }, {
-                        name: "labelMarginRight",
+                        name: "stickyElements",
                         type: "String",
-                        default: "0.266rem",
-                        remark: "为子元素设定统的距离右边的距离"
+                        default: "",
+                        remark: "dom的id，固定某一元素，滚动超出后会固定在上方"
+                    }, {
+                        name: "fixedElements",
+                        type: "String",
+                        default: "",
+                        remark: "dom的id，固定某一元素，滚动超出后会固定在上方"
+                    }, {
+                        name: "preventDefault",
+                        type: "Boolean",
+                        default: "true",
+                        remark: "阻止触发click事件，touchstart会触发click"
                     }
                 ]
             }
         },
         methods: {
+            consoleMes(){
+                console.log(23131)
+            },
             goBack() {
                 this.$router.go(-1);
             }
