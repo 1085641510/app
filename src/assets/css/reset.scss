@@ -29,11 +29,39 @@ $baseFontSize:75px;
     @return $px / $baseFontSize * 1rem;
 }
 
+.bg-router-contain{
+    position: relative;
+    width: 100%;
+}
+
+.bg-slide-forward-enter {
+  transform: translate(100%);
+}
+.bg-slide-forward-enter-active {
+  transition: all .3s ease-in-out;
+}
+.bg-slide-forward-leave-active {
+  transform: translate(-100%);
+  transition: all  .3s ease-in-out;
+}
+
+
+.bg-slide-back-enter {
+  transform: translate(-100%);
+}
+.bg-slide-back-enter-active {
+  transition: all .3s ease-in-out;
+}
+.bg-slide-back-leave-active {
+  transform: translate(100%);
+  transition: all  .3s ease-in-out;
+}
 /**
 ****bg-attr-show
 ***/
 
 .bg-attr-show{
+    background-color: #fff;
     .title{
         height: torem(60px);
         display: flex;
@@ -41,7 +69,7 @@ $baseFontSize:75px;
         padding-left: torem(15px);
         color: #999999;
         font-size: torem(20px);
- }
+    }
     table{
         border: 1px solid #e9e9e9;
         border-collapse: collapse;
@@ -153,6 +181,7 @@ bg-tab
 
 .bg-tab {
     width: 100%;
+    position: relative;
     height: torem(80px);
     border-bottom: 1px solid #cccccc;
     .bg-tab-con {

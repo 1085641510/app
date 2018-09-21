@@ -9,33 +9,45 @@
                 <i class="fa fa-repeat"></i>
             </div>
         </bg-header>
-        <bg-scroller lock-x scrollbar-y  class="app_section" >
-        <div>
-            <bg-group  labelAlign="left" label-margin-right="0.4rem" label-width="20%" label-align="right" label-color="rgba(0,0,0)" title="hello title"
-                footer-title="this is footer">
-                <bg-group-item label="这是第一个" label-color="rgba(0,0,0)">
-                    <bg-link-cell is-link value="进行中">
-                        我是
-                    </bg-link-cell>
-                </bg-group-item>
-                <bg-group-item labelAlign="left" label="hello">
-                    <div>测试</div>
-                </bg-group-item>
-                <bg-group-item labelAlign="right" label="我是广告">
-                    <div>测试</div>
-                </bg-group-item>
-                <bg-group-item labelAlign="right" label="我是广告">
-                    <div>测试</div>
-                </bg-group-item>
-                </bg-group>
-                <div id="fiexEle" style="margin-top: 0.5rem">
-                    <attr-show :attr-list="groupAttrList" title="group 参数详解"></attr-show>
-                </div>
-                <div style="margin-top: 0.5rem">
-                    <attr-show :attr-list="scrollerAttrList" title="scroller 参数详解"></attr-show>
-                </div>
-        </div>
+        <input v-model="value" type="text" />
+
+        <router-link :to="{name:'tab1'}">Go to 1</router-link>
+        <router-link :to="{name:'showTab'}">Go to 2</router-link>
+        <bg-scroller lock-x scrollbar-y class="app_section">
+            <div>
+                <bg-group labelAlign="left" label-margin-right="0.4rem" label-width="20%" label-align="right" label-color="rgba(0,0,0)" title="hello title"
+                    footer-title="this is footer">
+                    <bg-group-item label="这是第一个" label-color="rgba(0,0,0)">
+                        <bg-link-cell is-link value="进行中">
+                            我是
+                        </bg-link-cell>
+                    </bg-group-item>
+                    <bg-group-item labelAlign="left" label="hello">
+                        <div>测试</div>
+                    </bg-group-item>
+                    <bg-group-item labelAlign="right" label="我是广告">
+                        <div>测试</div>
+                    </bg-group-item>
+                    <bg-group-item labelAlign="right" label="我是广告">
+                        <div>测试</div>
+                    </bg-group-item>
+                    </bg-group>
+                    <div>
+                        <attr-show :attr-list="groupAttrList" title="group 参数详解"></attr-show>
+                    </div>
+                    <button @click="addDom($event)">add</button>
+                    <div style="margin-top: 0.5rem">
+                        <attr-show :attr-list="scrollerAttrList" title="scroller 参数详解"></attr-show>
+                    </div>
+            </div>
         </bg-scroller>
+        <div class="bg-router-contain">
+            <transition :name="transitionName">
+                <keep-alive>
+                    <router-view class="router-view"></router-view>
+                </keep-alive>
+            </transition>
+        </div>
 
     </div>
 </template>
@@ -147,30 +159,72 @@
                         default: "",
                         remark: "dom的id，固定某一元素，滚动超出后会固定在上方"
                     }, {
-                        name: "fixedElements",
-                        type: "String",
-                        default: "",
-                        remark: "dom的id，固定某一元素，滚动超出后会固定在上方"
-                    }, {
                         name: "preventDefault",
                         type: "Boolean",
                         default: "true",
                         remark: "阻止触发click事件，touchstart会触发click"
                     }
-                ]
+                ],
+                value: "hello",
+                transitionName: 'bg-slide-forward',
+                map: {}
             }
         },
         methods: {
-            consoleMes(){
+            consoleMes() {
                 console.log(23131)
+            },
+            addDom(e) {
+
+                this.groupAttrList.push({
+                    name: "新的add",
+                    type: "Boolean",
+                    default: "false",
+                    remark: "是否锁定X轴的滚动，相当于overflow-x:hidden"
+                })
             },
             goBack() {
                 this.$router.go(-1);
             }
         },
+        beforeRouteEnter(to, from, next) {
+           
+            next();
+
+        },
+        beforeRouteLeave(to, from, next) {
+           
+            next();
+
+        },
+        activated() {
+            // 在keep-alive中有效 进入执行
+            console.log("这是每次进入执行的")
+        },
+        deactivated() {
+            // 在keep-alive中有效 离开执行
+            console.log("这是每次离开执行的")
+        },
         mounted() {
 
-        }
+        },
+        watch: {
+            '$route'(to, from) {
+
+                if (!this.map[to.name]) {
+                    this.map[to.name] = +new Date() + 1;
+                }
+                if (!this.map[from.name]) {
+                    this.map[from.name] = +new Date();
+                }
+
+                if (this.map[to.name] > this.map[from.name]) {
+                    this.transitionName = 'bg-slide-forward';
+                } else {
+                    this.transitionName = 'bg-slide-back'
+                }
+            }
+        },
     }
 
 </script>
@@ -181,10 +235,18 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+        position: relative;
     }
     
     .app_section {
         overflow-y: auto;
         flex: 1;
+    }
+    
+    .router-view {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
     }
 </style>

@@ -11,6 +11,8 @@
                 <i class="fa fa-repeat"></i>
             </div>
         </bg-header>
+
+        <input v-model="value" type="text" />
         <bg-tab class="mytab" :select-index="curselectIndex">
             <bg-tab-item @selectItem="selectTabItem">tab1</bg-tab-item>
             <bg-tab-item @selectItem="selectTabItem">tab2</bg-tab-item>
@@ -33,26 +35,39 @@
 </template>
 
 <script>
-export default {
-    name: 'showTab',
-    data() {
-        return {
-            curselectIndex: 1
-        }
-    },
-    methods: {
-        goBack() {
-            this.$router.go(-1);
+    export default {
+        name: 'showTab',
+        data() {
+            return {
+                curselectIndex: 1,
+                value: "gagagag"
+            }
         },
-        selectTabItem(index) {
-            //console.log(index)
+        beforeRouteLeave(to, from, next) {
+            
+            next();
+
+        },
+        activated() {
+
+
+        },
+        mounted() {
+
+        },
+        methods: {
+            goBack() {
+                this.$router.go(-1);
+            },
+            selectTabItem(index) {
+                //console.log(index)
+            }
         }
     }
-}
 
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  
+
 </style>

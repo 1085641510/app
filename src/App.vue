@@ -31,8 +31,12 @@
         <bg-swiper-tab-item :item-width="'200px'" @selectItem="selectTabItem">tab7</bg-swiper-tab-item>
         <bg-swiper-tab-item :item-width="'300px'" @selectItem="selectTabItem">tab8</bg-swiper-tab-item>
     </bg-swiper-tab>-->
-    
-    <router-view/>
+    <transition :name="transitionName" >
+      <!--<keep-alive v-if="$route.meta.keepAlive">
+        <router-view class="router-view"></router-view>
+      </keep-alive>-->
+      <router-view class="router-view"></router-view>
+    </transition>
   </div>
 </template>
 
@@ -41,51 +45,55 @@
     name: 'App',
     data() {
       return {
-        navList: [
-          {
-            id: "1", label: '项目1', icon: `<i class="fa fa-steam"></i>`, children: [
-              {
-                id: "1-1", label: '子项目1',
-                children: [
-                  { id: "1-1-1", label: '子项目1-1' },
-                  { id: "1-2-1", label: '子项目2-1' }
-                ]
-              },
-              { id: "1-2", label: '子项目2' }
-            ]
-          },
-          { id: "2", label: '项目2' },
-          { id: "3", label: '项目3' }
-        ],
-        navDefaultId: "1-2-1",
-        curselectIndex:1
+        transitionName: 'bg-slide-forward',
+        map:{}
+      }
+    },
+    watch: {
+      '$route'(to, from) {
+       
+        if (!this.map[to.name]) {
+          this.map[to.name] = +new Date() + 1;
+        }
+        if (!this.map[from.name]) {
+          this.map[from.name] = +new Date();
+        }
+
+        if (this.map[to.name] > this.map[from.name]) {
+          this.transitionName = 'bg-slide-forward';
+        } else {
+          this.transitionName = 'bg-slide-back'
+        }
       }
     },
     methods: {
-      alertTap() {
-        alert(`this is tap`);
-        console.log(111)
-      },
-      
-      selectTabItem(index){
-        //console.log(index)
-      }
+
     }
   }
 
 </script>
 
 <style lang="scss">
-/*公共样式*/
-@import './assets/css/reset';
-$baseFontSize:75px;
-    @function torem($px) {
-        @return $px / $baseFontSize * 1rem;
-    }
+  /*公共样式*/
   
-  .mytab{
+  @import './assets/css/reset';
+ 
+  
+  
+</style>
+<style lang="scss" scoped>
+  $baseFontSize:75px;
+    @function torem($px) {
+      @return $px / $baseFontSize * 1rem;
+    }
+  .mytab {
     font-size: torem(30px);
     height: torem(100px);
   }
-  
+  .router-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 </style>
