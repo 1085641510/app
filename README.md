@@ -19,3 +19,7 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+正则
+var pathReg = /^(.*(?=.{8,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*)|(.*(?=.{8,})(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*? ]).*)|(.*(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[!@#$%^&*? ]).*)|(.*(?=.{8,})(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*)$/;
